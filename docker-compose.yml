@@ -1,0 +1,45 @@
+version: "3.9"
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.6.1
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+  kafka:
+    image: confluentinc/cp-kafka:7.6.1
+    depends_on: [zookeeper]
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+  neo4j:
+    image: neo4j:5
+    environment:
+      NEO4J_AUTH: neo4j/neo
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: pg
+      POSTGRES_PASSWORD: pg
+  collector:
+    build: ./collector
+    environment:
+      - PYTHONUNBUFFERED=1
+    depends_on: [kafka, postgres]
+  resolver:
+    build: ./resolver
+    depends_on: [kafka, neo4j]
+  insight:
+    build: ./insight
+    depends_on: [kafka]
+  creative:
+    build: ./creative
+    depends_on: [kafka]
+  placement:
+    build: ./placement
+    depends_on: [kafka]
+  measurement:
+    build: ./measurement
+    depends_on: [kafka]
+networks:
+  default:
+    name: media_bubble_net
