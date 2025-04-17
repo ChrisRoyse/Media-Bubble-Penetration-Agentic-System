@@ -17,4 +17,5 @@ for event in stream(settings().KAFKA_EVENTS_TOPIC, "insight"):
                 "cluster": int(lbl),
                 "event": raw[idx],
             })
-        embeds.clear(); raw.clear()
+        embeds.clear()
+        raw.clear()

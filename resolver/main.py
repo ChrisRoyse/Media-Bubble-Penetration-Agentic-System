@@ -1,4 +1,5 @@
-import json, itertools
+import json
+import itertools
 from kafka import KafkaConsumer
 from neo4j import GraphDatabase
 from common.config import settings

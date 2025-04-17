@@ -1,5 +1,4 @@
 from openai import OpenAI
-from tempfile import NamedTemporaryFile
 from base64 import b64decode
 
 client = OpenAI()

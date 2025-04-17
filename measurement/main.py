@@ -1,4 +1,6 @@
-import time, json, random
+import time
+import json
+import random
 from common.messaging import get_producer
 from collections import defaultdict
 

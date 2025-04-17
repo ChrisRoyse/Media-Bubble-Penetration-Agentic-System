@@ -1,4 +1,3 @@
-from datetime import datetime
 from google.ads.googleads.client import GoogleAdsClient as _GAC
 from google.ads.googleads.errors import GoogleAdsException
 

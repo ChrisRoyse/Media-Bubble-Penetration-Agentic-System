@@ -1,4 +1,5 @@
-import asyncio, json
+import asyncio
+import json
 from openai import AsyncOpenAI
 from common.messaging import stream, get_producer
 from common.config import settings

@@ -1,4 +1,5 @@
-import base64, tempfile
+import base64
+import tempfile
 from facebook_business.adobjects.adaccount import AdAccount
 from facebook_business.adobjects.adcreative import AdCreative
 from facebook_business.api import FacebookAdsApi
