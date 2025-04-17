@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Media Bubble Penetration Agentic System
 
 This monorepo contains all micro‑services needed to collect consented cross‑device signals, resolve identities, generate personalised creatives, push them into the major ad networks, and measure lift—while enforcing modern privacy rules.
@@ -61,3 +62,6 @@ This will start all required services and agents. Each agent will connect to the
 - All services are written in Python and expect the dependencies defined in their respective Dockerfiles (not included here).
 - For development, ensure you have Docker and Docker Compose v2+ installed.
 - For production, configure secrets and credentials securely.
+=======
+# Media-Bubble-Penetration-Agentic-System
+>>>>>>> 4912473bf58e2dd0782d5d4e9b3298cee0fe0c0f
