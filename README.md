@@ -25,9 +25,7 @@ In an era of crumbling third-party cookies and tightening privacy regulations (G
 *   [How It Works: The Technical Flow](#how-it-works-the-technical-flow)
 *   [Quick Start: Go Live in Minutes](#quick-start-go-live-in-minutes)
 *   [Configuration & Secrets Management](#configuration--secrets-management)
-*   [Day-2 Operations: Scaling & Maintenance](#day-2-operations-scaling--maintenance)
 *   [Compliance & Ethics: Built-In Responsibility](#compliance--ethics-built-in-responsibility)
-*   [Roadmap: What's Next](#roadmap-whats-next)
 *   [Contributing & License](#contributing--license)
 *   [FAQ](#faq)
 
@@ -262,7 +260,7 @@ For production deployments, DO NOT commit secrets directly or use plain environm
 - Cloud provider secrets managers (AWS Secrets Manager, GCP Secret Manager, Azure Key Vault)
 - Mount secrets securely into the containers (e.g., to /run/secrets/google-ads.json as shown in the example).
 
-## Day-2 Operations: Scaling & Maintenance
+## Scaling & Maintenance
 
 ### Scaling:
 - **Kafka**: Increase the number of partitions for high-throughput topics (events, resolved, etc.).
@@ -295,16 +293,6 @@ MB-PAS is designed with privacy as a core principle, not an afterthought:
   - AI-generated content can inherit biases. The creative prompts sent to GPT-4o are designed to be neutral but should be reviewed.
   - Leverage OpenAI's (or other providers') built-in safety and policy endpoints to automatically flag potentially harmful or biased generated content. Implement mechanisms to blacklist or require review for flagged creatives.
 - **User Control**: Ensure your consent management platform (CMP) allows users to easily review and withdraw consent, which should trigger data deletion requests downstream (requires additional implementation).
-
-## Roadmap: What's Next
-
-MB-PAS is a foundational platform. Future enhancements include:
-
-- **Q3 2025**: RL-Based Budget Optimization: Implement a microservice consuming lift-metrics to dynamically adjust budget allocation across platforms/clusters using reinforcement learning, maximizing incremental ROAS.
-- **Q4 2025**: Privacy Sandbox FLEDGE/PAAPI Bidder: Develop an on-device bidder microservice component to participate in FLEDGE/Protected Audience API auctions within the browser, leveraging interest groups derived from MB-PAS clusters.
-- **Q1 2026**: Differential Privacy for Lookalikes: Integrate techniques like differential privacy to generate synthetic look-alike segments based on cluster characteristics, allowing for prospecting without exposing individual user data.
-- **Q2 2026**: CTV/OTT Expansion: Adapt the identity and targeting framework for Connected TV environments, potentially integrating with UID2 and exploring formats like Shoppable QR codes in video ads.
-- **Ongoing**: Helm charts for simplified Kubernetes deployment, expanded platform integrations (e.g., TikTok, Pinterest), improved monitoring dashboards, advanced identity graph heuristics.
 
 ## Contributing & License
 
@@ -342,4 +330,4 @@ A: The provided resolver/main.py focuses on deterministic linking (via user_id).
 - Running periodic offline batch jobs or graph algorithms (e.g., using Neo4j Graph Data Science library) to identify devices frequently sharing signals (e.g., same IP within a short timeframe, similar UA patterns) and creating weaker :MAYBE_USES relationships or confidence scores between :Person and :Device nodes, respecting privacy rules (e.g., IP masking, aggregation). This requires careful tuning and adherence to privacy policies.
 
 **Q: Is the full source code included in this repository?**
-A: Yes, the repository linked (hypothetically https://github.com/your-org/mb-pas.git) should contain the complete source code organised according to the directory structure, including all Python microservices, Dockerfiles, configuration examples, and the Makefile. You should be able to clone it and run `make up` after configuring secrets.
+A: Yes, the repository should contain the complete source code organised according to the directory structure, including all Python microservices, Dockerfiles, configuration examples, and the Makefile. You should be able to clone it and run `make up` after configuring secrets.
